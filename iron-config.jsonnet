@@ -1,6 +1,6 @@
 local cluster = 'iron-1';
-local host_mount = '/Users/marc/make/scores';
-local ctr_mount = '/scores';
+local host_mount = '/Users/marc/make/data';
+local ctr_mount = '/data';
 {
   kind: 'Cluster',
   apiVersion: 'kind.x-k8s.io/v1alpha4',
