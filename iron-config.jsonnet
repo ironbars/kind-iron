@@ -7,15 +7,21 @@ local ctr_work_path = '/build';
   kind: 'Cluster',
   apiVersion: 'kind.x-k8s.io/v1alpha4',
   name: cluster,
+  containerdConfigPatches: [
+    |||
+      [plugins."io.containerd.grpc.v1.cri".registry]
+        config_path = "/etc/containerd/certs.d"
+    |||,
+  ],
   nodes: [
     {
       role: 'control-plane',
       kubeadmConfigPatches: [
         |||
           kind: InitConfiguration
-          nodeRegistration:
-            kubeletExtraArgs:
-              node-labels: "ingress-ready=true"
+           nodeRegistration:
+             kubeletExtraArgs:
+               node-labels: "ingress-ready=true"
         |||,
       ],
       extraPortMappings: [
