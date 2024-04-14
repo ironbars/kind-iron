@@ -19,9 +19,9 @@ local ctr_work_path = '/build';
       kubeadmConfigPatches: [
         |||
           kind: InitConfiguration
-           nodeRegistration:
-             kubeletExtraArgs:
-               node-labels: "ingress-ready=true"
+          nodeRegistration:
+            kubeletExtraArgs:
+              node-labels: "ingress-ready=true"
         |||,
       ],
       extraPortMappings: [

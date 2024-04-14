@@ -17,9 +17,9 @@ nodes:
     kubeadmConfigPatches:
       - |
         kind: InitConfiguration
-         nodeRegistration:
-           kubeletExtraArgs:
-             node-labels: "ingress-ready=true"
+        nodeRegistration:
+          kubeletExtraArgs:
+            node-labels: "ingress-ready=true"
     role: control-plane
   - extraMounts:
       - containerPath: /data
