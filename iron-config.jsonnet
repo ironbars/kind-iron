@@ -1,6 +1,8 @@
 local cluster = 'iron-1';
-local host_mount = '/Users/marc/make/data';
-local ctr_mount = '/data';
+local host_db_path = '/Users/marc/make/data';
+local ctr_db_path = '/data';
+local host_work_path = 'Users/marc/make/build';
+local ctr_work_path = '/build';
 {
   kind: 'Cluster',
   apiVersion: 'kind.x-k8s.io/v1alpha4',
@@ -33,9 +35,12 @@ local ctr_mount = '/data';
       role: 'worker',
       extraMounts: [
         {
-          hostPath: host_mount,
-          containerPath: ctr_mount,
-          readOnly: true,
+          hostPath: host_db_path,
+          containerPath: ctr_db_path,
+        },
+        {
+          hostPath: host_work_path,
+          containerPath: ctr_work_path,
         },
       ],
     },

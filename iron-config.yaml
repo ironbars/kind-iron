@@ -20,5 +20,6 @@ nodes:
   - extraMounts:
       - containerPath: /data
         hostPath: /Users/marc/make/data
-        readOnly: true
+      - containerPath: /build
+        hostPath: Users/marc/make/build
     role: worker
