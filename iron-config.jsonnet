@@ -1,7 +1,7 @@
 local cluster = 'iron-1';
 local host_db_path = '/Users/marc/make/data';
 local ctr_db_path = '/data';
-local host_work_path = 'Users/marc/make/build';
+local host_work_path = '/Users/marc/make/build';
 local ctr_work_path = '/build';
 {
   kind: 'Cluster',

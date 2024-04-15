@@ -25,5 +25,5 @@ nodes:
       - containerPath: /data
         hostPath: /Users/marc/make/data
       - containerPath: /build
-        hostPath: Users/marc/make/build
+        hostPath: /Users/marc/make/build
     role: worker
