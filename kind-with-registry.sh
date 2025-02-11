@@ -1,6 +1,8 @@
 #!/bin/sh
 set -o errexit
 
+script_dir="$(dirname "$0")"
+
 # 1. Create registry container unless it already exists
 reg_name='kind-registry'
 reg_port='5001'
@@ -12,7 +14,7 @@ if [ "$(docker inspect -f '{{.State.Running}}' "${reg_name}" 2>/dev/null || true
 fi
 
 # 2. Create kind cluster with containerd registry config dir enabled
-kind create cluster --config="$(realpath -- ./iron-config.yaml)"
+kind create cluster --config="${script_dir}/iron-config.yaml"
 
 # 3. Add the registry config to the nodes
 #
