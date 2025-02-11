@@ -35,6 +35,11 @@ local ctr_work_path = '/build';
           hostPort: 443,
           protocol: 'TCP',
         },
+        {
+          containerPort: 30017,
+          hostPort: 30017,
+          protocol: 'TCP',
+        },
       ],
     },
     {
