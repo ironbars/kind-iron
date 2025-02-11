@@ -39,6 +39,13 @@ local ctr_work_path = '/build';
     },
     {
       role: 'worker',
+      extraPortMappings: [
+        {
+          containerPort: 30017,
+          hostPort: 30017,
+          protocol: 'TCP',
+        },
+      ],
       extraMounts: [
         {
           hostPath: host_db_path,

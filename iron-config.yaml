@@ -26,4 +26,8 @@ nodes:
         hostPath: /Users/marc/make/data
       - containerPath: /build
         hostPath: /Users/marc/make/build
+    extraPortMappings:
+      - containerPort: 30017
+        hostPort: 30017
+        protocol: TCP
     role: worker
