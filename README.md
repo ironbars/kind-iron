@@ -69,7 +69,7 @@ working configuration for a single node cluster. That would look like this:
 
 ```jsonnet
 // mycluster.jsonnet
-local cluster = import 'lib/cluster';
+local cluster = import 'lib/cluster.libsonnet';
 
 cluster.newCluster('mycluster')
 ```
@@ -78,7 +78,7 @@ If you wanted a minimal cluster with only ingress enabled, you could create a fi
 
 ```jsonnet
 // mycluster.jsonnet
-local cluster = import 'lib/cluster';
+local cluster = import 'lib/cluster.libsonnet';
 
 local options = {
   ingress: {

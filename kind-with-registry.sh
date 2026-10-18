@@ -15,7 +15,13 @@ if [ "$(docker inspect -f '{{.State.Running}}' "${reg_name}" 2>/dev/null || true
 fi
 
 # 2. Create kind cluster with containerd registry config dir enabled
-kind create cluster --config="${script_dir}/scoresvr.yaml"
+kind create cluster --config="${script_dir}/${settings}.yaml"
+
+if command -v yq > /dev/null 2>&1; then
+  cluster_name="$(yq '.name' "${script_dir}/${settings}.yaml")"
+else
+  cluster_name="$(grep -E '^name:.*' "${script_dir}/${settings}.yaml" | awk '{print $2}')"
+fi
 
 # 3. Add the registry config to the nodes
 #
@@ -27,7 +33,7 @@ kind create cluster --config="${script_dir}/scoresvr.yaml"
 # alias localhost:${reg_port} to the registry container when pulling images
 REGISTRY_DIR="/etc/containerd/certs.d/localhost:${reg_port}"
 
-for node in $(kind get nodes --name iron-1); do
+for node in $(kind get nodes --name "${cluster_name}"); do
   docker exec "${node}" mkdir -p "${REGISTRY_DIR}"
   cat <<EOF | docker exec -i "${node}" cp /dev/stdin "${REGISTRY_DIR}/hosts.toml"
 [host."http://${reg_name}:5000"]
