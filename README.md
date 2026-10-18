@@ -43,7 +43,7 @@ for additional options to the configuration.
         "hostPath": "string",
         "containerPath": "string"
       }
-    ],
+    ]
   },
   "ports": {
     "worker": [
@@ -59,7 +59,7 @@ for additional options to the configuration.
         "containerPort": "integer",
         "protocol": "string",
       }
-    ],
+    ]
   }
 }
 ```
