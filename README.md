@@ -25,10 +25,10 @@ for additional options to the configuration.
 ```json
 {
   "ingress": {
-    "enabled": "boolean",
+    "enabled": "boolean"
   },
   "registry": {
-    "enabled": "boolean",
+    "enabled": "boolean"
   },
   "workers": "integer",
   "mounts": {
@@ -38,7 +38,7 @@ for additional options to the configuration.
         "containerPath": "string"
       }
     ],
-    "controlPlane: [
+    "controlPlane": [
       {
         "hostPath": "string",
         "containerPath": "string"
@@ -53,11 +53,11 @@ for additional options to the configuration.
         "protocol": "string"
       }
     ],
-    "controlPlane: [
+    "controlPlane": [
       {
         "hostPort": "integer",
         "containerPort": "integer",
-        "protocol": "string",
+        "protocol": "string"
       }
     ]
   }
